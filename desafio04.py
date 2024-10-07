@@ -34,7 +34,7 @@ while cont == 1:
                 print("--Login--")
                 username = input("Insira seu usuário: ")
                 for i in range(len(nome)):
-                    if username != nome[i]:
+                    while username != nome[i]:
                         username = input("Usuário inexistente. Tente novamente: ")
                 else:
                     password = int(input("Insira sua senha: "))
