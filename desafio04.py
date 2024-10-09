@@ -1,6 +1,6 @@
-nome = ["fulano"]
-senha = [123]
-len(nome)
+nome = []
+senha = []
+t = len(nome)
 cont = 1
 while cont == 1:
     tent = 0
@@ -17,15 +17,14 @@ while cont == 1:
             case 1:
                 print("--Cadastro--")
                 username = input("Coloque seu nome de usuário: ")
-                for i in range(len(nome)):
-                    while username == nome[i]:
-                        username = input("Esse usuário já existe. Tente novamente: ")
+                if username in nome:
+                    print("Usuário já existe.")
                 else:
-                        nome.append(username)
-                password = int(input("Coloque sua senha (apenas números): "))
-                senha.append(password)
-                print("Cadastro concluído!")
-                print()
+                    nome.append(username)
+                    password = int(input("Coloque sua senha (apenas números): "))
+                    senha.append(password)
+                    print("Cadastro concluído!")
+                    print()
             case 2:
                 print("--Mostrar--")
                 print(nome, senha)
@@ -33,21 +32,21 @@ while cont == 1:
             case 3:
                 print("--Login--")
                 username = input("Insira seu usuário: ")
-                for i in range(len(nome)):
-                    while username != nome[i]:
-                        username = input("Usuário inexistente. Tente novamente: ")
-                else:
-                    password = int(input("Insira sua senha: "))
-                    for i in range(len(senha)):
-                        while password != senha[i]:
-                            password = int(input(f"Senha incorreta. Tente mais {vez} vezes: "))
-                            tent += 1
-                            vez -= 1
-                            if tent == 3:
-                                print("Conta bloqueada.")
-                                exit()
-                    print("Login efetuado!")
-                    break
+                for x in nome:
+                    if username not in nome:
+                        print("Usuário inexistente.")
+                    else:
+                        password = int(input("Digite sua senha: "))
+                    while password not in senha:
+                        tent +=1
+                        vez -=1
+                        password = int(input(f"Senha incorreta, você tem mais {vez} vezes: "))
+                        if vez == 0:
+                            print("Programa bloqueado.")
+                            exit()
+                    else:
+                        print("Login efetuado!")
+                        exit()
             case 4:
                 print("Saindo da plataforma.")
                 break
