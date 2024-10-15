@@ -1,9 +1,10 @@
 #import biblioteca as bt
 from biblioteca import *
-pessoa1 = AlgumaP("Mário", 22, 1.8)
-print(pessoa1.nome, pessoa1.peso, pessoa1.altura )
+p1 = Pessoa("Mário", 87, 22)
+print(p1.nome, p1.peso, p1.idade )
 
-pessoa1.comer()
-pessoa1.comer()
-pessoa1.pararDeComer()
-pessoa1.comer()
+p1.andar()
+p1.andar()
+p1.comer()
+p1.parar()
+p1.dormir()
